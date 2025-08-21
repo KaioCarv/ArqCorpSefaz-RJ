@@ -1,0 +1,192 @@
+:root {
+      --brand: #1e54b7;
+      --brand-600: #17479a;
+      --brand-50: #f4f7ff;
+      --bg: #ffffff;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --ring: 0 0 0 4px rgba(30, 84, 183, 0.18);
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.07);
+      --border: rgba(0,0,0,0.08);
+    }
+
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 400 16px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    header {
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .kicker { color: var(--brand); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; font-size: 42px; }
+    h1 { margin: 0; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.15; }
+    .subtitle { color: var(--muted); max-width: 70ch; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      align-items: center;
+    }
+    
+    @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      display: grid;
+      align-content: start;
+      gap: 14px;
+      position: relative;
+      border: 1px solid var(--border);
+      align-self: start;
+      width: 1024px;
+    }
+    
+    .card:focus-within { outline: none; box-shadow: var(--shadow), var(--ring); }
+    .icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(30,84,183,0.10);
+      display: grid; place-items: center;
+    }
+    .card h2 { font-size: 18px; margin: 2px 0 0; }
+    .desc { color: var(--muted); font-size: 24px; }
+
+    details { border-top: 1px solid var(--border); padding-top: 10px; }
+    summary {
+      list-style: none; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 12px; border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      transition: background .2s ease, border-color .2s ease, transform .12s ease;
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    details[open] summary { border-color: rgba(30,84,183,.35); background: var(--brand-50); }
+    summary:active { transform: translateY(1px); }
+
+    .menu {
+      display: grid; gap: 10px; margin-top: 12px;
+    }
+    .menu a {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      align-items: center;
+      text-decoration: none; color: var(--text);
+      padding: 12px 14px; border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      transition: transform .12s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+      font-size: 14px; font-weight: 500;
+    }
+    .menu a:hover { background: var(--brand-50); border-color: rgba(30,84,183,0.35); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,0.05); }
+    .menu a::after { content: '›'; grid-column: 2 / 3; grid-row: 1 / 2; font-size: 16px; line-height: 1; opacity: .65; }
+    .menu a .label { grid-column: 1 / 2; grid-row: 1 / 2; }
+    .menu a small { grid-column: 1 / -1; grid-row: 2 / 3; margin-top: 4px; color: var(--muted); font-weight: 400; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 9999px;
+      font-weight: 600; font-size: 14px;
+      color: #fff;
+      background: var(--brand);
+      border: 1px solid var(--brand-600);
+      box-shadow: 0 6px 18px rgba(30,84,183,0.20);
+      transition: transform .12s ease, box-shadow .2s ease, background .2s ease, filter .2s ease;
+    }
+    .btn-primary:hover {
+      background: var(--brand-600);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(30,84,183,0.28);
+      filter: saturate(1.03);
+    }
+    .btn-primary:active { transform: translateY(0); box-shadow: 0 4px 14px rgba(30,84,183,0.18); }
+
+    .support {
+      margin-top: 26px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; color: var(--muted);
+    }
+    .badge { padding: 6px 10px; border-radius: 999px; border: 1px dashed var(--border); font-size: 12px; }
+
+    a:focus-visible, summary:focus-visible, .btn-primary:focus-visible { outline: none; box-shadow: var(--ring); }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+
+
+
+
+
+
+/* === CENTRALIZAR O CARD UNICO===  REMOVER DEPOIS ----------------------------------------------------------------------------------------------------------------------*/ 
+.grid{
+  /* mantém seu grid, mas centraliza os itens dentro da célula */
+  justify-items: center;
+}
+
+.card{
+  grid-column: 1 / -1;                 /* faz o card ocupar todas as colunas do grid */
+  justify-self: center;                 /* centra dentro do grid */
+  width: min(100%, 1024px);             /* responsivo, com limite */
+  margin-inline: auto;                  /* “cinto de segurança” caso mude o layout */
+  padding: clamp(24px, 2.6vw, 40px);    /* mais respiro interno */
+  gap: clamp(12px, 1.2vw, 20px);
+  
+}
+
+/* === TIPOGRAFIA / ESPAÇAMENTO MAIORES DENTRO DO CARD === */
+.icon{
+  width: 52px; height: 52px; border-radius: 12px;
+}
+
+.card h2{
+  font-size: clamp(22px, 2.4vw, 28px);
+  margin-top: 6px;
+}
+
+.desc{
+  font-size: clamp(18px, 1.7vw, 16px);
+}
+
+details{ padding-top: 16px; }
+
+summary{
+  padding: 14px 16px;
+  font-size: clamp(14px, 1.6vw, 16px);
+  border-radius: 14px;
+}
+
+.menu{ gap: 12px; margin-top: 14px; }
+
+.menu a{
+  padding: 14px 16px;
+  font-size: clamp(14px, 1.6vw, 16px);
+  border-radius: 14px;
+}
+
+.menu a::after{ font-size: 24px; }
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

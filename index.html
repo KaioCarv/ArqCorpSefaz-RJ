@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instituição — Painel com 4 Cards</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="color-scheme" content="light" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="kicker">SEFAZ-RJ</span>
+      <p class="subtitle">Quatro áreas de acesso rápido com informações e serviços relevantes para contribuintes e empresas.</p>
+    </header>
+
+    <div class="grid">
+      <section class="card" aria-labelledby="c1-title">
+        <div class="icon" aria-hidden="true">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" transform="" id="injected-svg">
+            <!-- Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free -->
+            <path d="M12 2C7.66 2 4 3.83 4 6v12c0 2.17 3.66 4 8 4s8-1.83 8-4V6c0-2.17-3.66-4-8-4m0 2c3.68 0 5.91 1.49 6 2-.09.51-2.32 2-6 2S6.07 6.49 6 6.01C6.07 5.51 8.31 4 12 4M6 8.61C7.48 9.46 9.64 10 12 10s4.52-.55 6-1.39V10c-.07.5-2.31 2-6 2s-5.93-1.51-6-2zm0 4c1.48.85 3.64 1.39 6 1.39s4.52-.55 6-1.39V14c-.07.5-2.31 2-6 2s-5.93-1.51-6-2zM12 20c-3.69 0-5.93-1.51-6-2v-1.39c1.48.85 3.64 1.39 6 1.39s4.52-.55 6-1.39V18c-.07.5-2.31 2-6 2"/>
+            </svg>
+        </div>
+        <h2 id="c1-title">SINCAD</h2>
+        <p class="desc">Sistema de Cadastro de Contribuintes do ICMS.</p>
+        <details>
+          <summary aria-controls="c1-menu" aria-expanded="false">Opções e atalhos</summary>
+          <nav class="menu" id="c1-menu" aria-label="Atalhos — Serviços ao Contribuinte">
+            <a href="#/ipva">
+                <span class="label">SINCAD-WEB</span>
+                <small>
+                  Sistema responsável pelo cadastro de contribuintes de ICMS nas administrações tributárias estaduais
+                </small>
+            </a>
+            <a href="#/icms">
+                <span class="label">SINCAD-SERVICOS-CONSULTAS-REST</span>
+                <small>
+                  Serviço REST em Spring Boot permite que marketplaces consultem inscrições estaduais nas 27 UFs via integração com o CCC
+                </small>
+            </a>
+
+            <a href="#/certidoes">
+                <span class="label">SINCAD-PORTAL-ELETRONICO</span>
+                <small>
+                  SEC é um sistema de cadastro eletrônico voltado à gestão de inscrições estaduais
+                </small>
+             </a>
+
+            <a href="#/certidoes">
+              <span class="label">SINCAD SERVICE</span>
+              <small>
+                Serviço SOAP que recebe XMLs da JUCERJA cor pedidos de concessão ou atualização de inscriçã estadual.
+              </small>
+            </a>           
+          </nav>
+        </details>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const groups = document.querySelectorAll('.grid details');
+    groups.forEach(d => {
+      const summary = d.querySelector('summary');
+      const set = () => summary && summary.setAttribute('aria-expanded', d.open ? 'true' : 'false');
+      d.addEventListener('toggle', () => {
+        if (d.open) {
+          groups.forEach(other => { if (other !== d && other.open) other.open = false; });
+        }
+        set();
+      });
+      set();
+    });
+  </script>
+</body>
+</html>
