@@ -24,15 +24,27 @@
         </div>
         <h2 id="c1-title">SINCAD</h2>
         <p class="desc">Sistema de Cadastro de Contribuintes do ICMS.</p>
-        <details>
+        <details class="accordion">
           <summary aria-controls="c1-menu" aria-expanded="false">Opções e atalhos</summary>
           <nav class="menu" id="c1-menu" aria-label="Atalhos — Serviços ao Contribuinte">
-            <a href="#/ipva">
-                <span class="label">SINCAD-WEB</span>
-                <small>
-                  Sistema responsável pelo cadastro de contribuintes de ICMS nas administrações tributárias estaduais
-                </small>
-            </a>
+              <details class="menu-item">
+                <summary>
+                  <span class="label">SINCAD-WEB</span>
+                  <small>Sistema responsável pelo cadastro de contribuintes de ICMS</small>
+                </summary>
+
+                <!-- Submenu que abre à direita -->
+                <div class="flyout" role="group" aria-label="Infra — SINCAD-WEB">
+                  <a class="tile" href="#/monitor">MONITOR DE URLs</a>
+                  <a class="tile" href="#/bd">BANCO DE DADOS</a>
+                  <a class="tile" href="#/seguranca">SEGURANÇA</a>
+                  <a class="tile" href="#/rede">REDE</a>
+                  <a class="tile" href="#/isilon">ISILON</a>
+                  <a class="tile" href="#/cicd">CI/CD</a>
+                  <a class="tile" href="#/openshift">OPENSHIFT</a>
+                </div>
+              </details>
+
             <a href="#/icms">
                 <span class="label">SINCAD-SERVICOS-CONSULTAS-REST</span>
                 <small>
@@ -50,7 +62,7 @@
             <a href="#/certidoes">
               <span class="label">SINCAD SERVICE</span>
               <small>
-                Serviço SOAP que recebe XMLs da JUCERJA cor pedidos de concessão ou atualização de inscriçã estadual.
+                Serviço SOAP que recebe XMLs da JUCERJA cor pedidos de concessão ou atualização de inscrição estadual.
               </small>
             </a>           
           </nav>
@@ -59,19 +71,6 @@
     </div>
   </div>
 
-  <script>
-    const groups = document.querySelectorAll('.grid details');
-    groups.forEach(d => {
-      const summary = d.querySelector('summary');
-      const set = () => summary && summary.setAttribute('aria-expanded', d.open ? 'true' : 'false');
-      d.addEventListener('toggle', () => {
-        if (d.open) {
-          groups.forEach(other => { if (other !== d && other.open) other.open = false; });
-        }
-        set();
-      });
-      set();
-    });
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>

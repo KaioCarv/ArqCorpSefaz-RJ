@@ -190,3 +190,64 @@ summary{
 .menu a::after{ font-size: 24px; }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+/* --- Dropdown para BAIXO (sempre) --- */
+.menu > details.menu-item{ position: static; }
+
+.menu > details.menu-item > summary{
+  /* mantém o look dos itens da lista */
+  list-style: none; cursor: pointer;
+  display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto auto;
+  align-items: center;
+  padding: 12px 14px; border-radius: 12px;
+  border: 1px solid var(--border); background: #fff;
+  transition: background .2s ease, border-color .2s ease, transform .12s ease, box-shadow .2s ease;
+  font-size: 16px; font-weight: 500;
+}
+
+.menu > details.menu-item > summary > small {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.menu > details.menu-item > summary::after{
+  content: '›'; grid-column: 2/3; grid-row: 1/2; font-size: 16px; opacity: .65; transition: transform .2s ease;
+}
+.menu > details.menu-item[open] > summary{ background: var(--brand-50); border-color: rgba(30,84,183,.35); }
+.menu > details.menu-item[open] > summary::after{ transform: rotate(90deg); } /* seta vira “para baixo” */
+.menu > details.menu-item > summary:active{ transform: none; } /* sem “pulo” no clique */
+
+/* Conteúdo do submenu agora aparece ABAIXO do summary */
+.flyout{
+  position: static;           /* importante: nada de absolute */
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* vira grade fluida */
+  overflow: hidden;
+  animation: dd-close .18s ease;
+}
+.menu > details.menu-item[open] .flyout{ animation: dd-open .18s ease; }
+
+@keyframes dd-open { from { opacity:.0; transform: translateY(-4px); } to { opacity:1; transform: translateY(0); } }
+@keyframes dd-close{ from { opacity:1; transform: translateY(0); }   to { opacity:.0; transform: translateY(-4px); } }
+
+/* Blocos clicáveis */
+.tile{
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  min-height: 88px; padding: 14px; border-radius: 14px;
+  text-decoration: none; color: #fff; font-weight: 700;
+  background: var(--brand); border: 1px solid var(--brand-600);
+  transition: transform .12s ease, filter .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.tile:hover{ background: var(--brand-600); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(30,84,183,.25); }
+
