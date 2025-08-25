@@ -11,7 +11,6 @@
   <div class="container">
     <header>
       <span class="kicker">SEFAZ-RJ</span>
-      <p class="subtitle">Quatro áreas de acesso rápido com informações e serviços relevantes para contribuintes e empresas.</p>
     </header>
 
     <div class="grid">
@@ -27,46 +26,80 @@
         <details class="accordion">
           <summary aria-controls="c1-menu" aria-expanded="false">Opções e atalhos</summary>
           <nav class="menu" id="c1-menu" aria-label="Atalhos — Serviços ao Contribuinte">
-              <details class="menu-item">
-                <summary>
-                  <span class="label">SINCAD-WEB</span>
-                  <small>Sistema responsável pelo cadastro de contribuintes de ICMS</small>
-                </summary>
+          <!-- 1) SINCAD-WEB (já no seu código, com ajuste no data-check) -->
+          <details class="menu-item">
+            <summary>
+              <span class="label">SINCAD-WEB</span>
+              <small>Sistema responsável pelo cadastro de contribuintes de ICMS</small>
+            </summary>
 
-                <!-- Submenu que abre à direita -->
-                <div class="flyout" role="group" aria-label="Infra — SINCAD-WEB">
-                  <a class="tile" href="#/monitor">MONITOR DE URLs</a>
-                  <a class="tile" href="#/bd">BANCO DE DADOS</a>
-                  <a class="tile" href="#/seguranca">SEGURANÇA</a>
-                  <a class="tile" href="#/rede">REDE</a>
-                  <a class="tile" href="#/isilon">ISILON</a>
-                  <a class="tile" href="#/cicd">CI/CD</a>
-                  <a class="tile" href="#/openshift">OPENSHIFT</a>
-                </div>
-              </details>
+            <div class="flyout" role="group" aria-label="Infra — SINCAD-WEB">
+              <a class="tile" id="monitorBtn"
+                data-check="https://www.google.com/favicon.ic"
+                href="#/monitor">MONITOR DE URLs</a>
 
-            <a href="#/icms">
-                <span class="label">SINCAD-SERVICOS-CONSULTAS-REST</span>
-                <small>
-                  Serviço REST em Spring Boot permite que marketplaces consultem inscrições estaduais nas 27 UFs via integração com o CCC
-                </small>
-            </a>
+              <a class="tile" href="#/bd">BANCO DE DADOS</a>
+              <a class="tile" href="#/seguranca">SEGURANÇA</a>
+              <a class="tile" href="#/rede">REDE</a>
+              <a class="tile" href="#/isilon">ISILON</a>
+              <a class="tile" href="#/cicd">CI/CD</a>
+              <a class="tile" href="#/openshift">OPENSHIFT</a>
+            </div>
+          </details>
 
-            <a href="#/certidoes">
-                <span class="label">SINCAD-PORTAL-ELETRONICO</span>
-                <small>
-                  SEC é um sistema de cadastro eletrônico voltado à gestão de inscrições estaduais
-                </small>
-             </a>
+          <!-- 2) SINCAD-SERVICOS-CONSULTAS-REST -->
+          <details class="menu-item">
+            <summary>
+              <span class="label">SINCAD-SERVICOS-CONSULTAS-REST</span>
+              <small>Consulta de inscrições estaduais nas 27 UFs via integração com o CCC</small>
+            </summary>
 
-            <a href="#/certidoes">
+            <div class="flyout" role="group" aria-label="Infra — SINCAD-SERVICOS-CONSULTAS-REST">
+              <a class="tile" href="#/monitor-rest">MONITOR DE URLs</a>
+              <a class="tile" href="#/bd-rest">BANCO DE DADOS</a>
+              <a class="tile" href="#/seguranca-rest">SEGURANÇA</a>
+              <a class="tile" href="#/rede-rest">REDE</a>
+              <a class="tile" href="#/isilon-rest">ISILON</a>
+              <a class="tile" href="#/cicd-rest">CI/CD</a>
+              <a class="tile" href="#/openshift-rest">OPENSHIFT</a>
+            </div>
+          </details>
+
+          <!-- 3) SINCAD-PORTAL-ELETRONICO -->
+          <details class="menu-item">
+            <summary>
+              <span class="label">SINCAD-PORTAL-ELETRONICO</span>
+              <small>Cadastro eletrônico voltado à gestão de inscrições estaduais</small>
+            </summary>
+
+            <div class="flyout" role="group" aria-label="Infra — SINCAD-PORTAL-ELETRONICO">
+              <a class="tile" href="#/monitor-portal">MONITOR DE URLs</a>
+              <a class="tile" href="#/bd-portal">BANCO DE DADOS</a>
+              <a class="tile" href="#/seguranca-portal">SEGURANÇA</a>
+              <a class="tile" href="#/rede-portal">REDE</a>
+              <a class="tile" href="#/isilon-portal">ISILON</a>
+              <a class="tile" href="#/cicd-portal">CI/CD</a>
+              <a class="tile" href="#/openshift-portal">OPENSHIFT</a>
+            </div>
+          </details>
+
+          <!-- 4) SINCAD SERVICE -->
+          <details class="menu-item">
+            <summary>
               <span class="label">SINCAD SERVICE</span>
-              <small>
-                Serviço SOAP que recebe XMLs da JUCERJA cor pedidos de concessão ou atualização de inscrição estadual.
-              </small>
-            </a>           
-          </nav>
-        </details>
+              <small>Serviço SOAP para recepção de XMLs da JUCERJA</small>
+            </summary>
+
+            <div class="flyout" role="group" aria-label="Infra — SINCAD SERVICE">
+              <a class="tile" href="#/monitor-service">MONITOR DE URLs</a>
+              <a class="tile" href="#/bd-service">BANCO DE DADOS</a>
+              <a class="tile" href="#/seguranca-service">SEGURANÇA</a>
+              <a class="tile" href="#/rede-service">REDE</a>
+              <a class="tile" href="#/isilon-service">ISILON</a>
+              <a class="tile" href="#/cicd-service">CI/CD</a>
+              <a class="tile" href="#/openshift-service">OPENSHIFT</a>
+            </div>
+          </details>
       </section>
     </div>
   </div>

@@ -32,3 +32,36 @@ const accordions = document.querySelectorAll('.card > details.accordion');
       if (!d.contains(e.target)) d.open = false;
     });
   });
+
+//----------------------------------------------------------------------------------------------------------------------------------------------
+
+function pingImage(url, timeout = 6000){
+  return new Promise(resolve => {
+    const img = new Image();
+    let done = false;
+    const end = (ok) => { if (!done){ done = true; clearTimeout(t); resolve(ok); } };
+    const bust = (url.includes('?') ? '&' : '?') + 't=' + Date.now();
+    const t = setTimeout(() => end(false), timeout);
+    img.onload  = () => end(true);   // resposta HTTP OK + imagem válida
+    img.onerror = () => end(false);  // erro de rede ou não é imagem
+    img.src = url + bust;
+  });
+}
+
+async function atualizarMonitores(){
+  const itens = document.querySelectorAll('.tile[data-check]');
+  for (const el of itens){
+    const ok = await pingImage(el.dataset.check);
+    el.classList.toggle('is-down', !ok);
+    el.classList.toggle('is-up', ok);
+    el.title = ok ? 'Online' : 'Offline';
+  }
+}
+
+// Deixa todos verdes e monitora os que têm data-check
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.tile').forEach(el => el.classList.add('is-up'));
+  atualizarMonitores();
+  setInterval(atualizarMonitores, 30000);
+});
+
