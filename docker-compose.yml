@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file: .env          # usa seu .env
+    volumes:
+      - .:/app              # hot-reload do código
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload

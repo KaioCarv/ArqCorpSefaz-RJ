@@ -65,3 +65,27 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(atualizarMonitores, 30000);
 });
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+async function atualizar(){
+  const tiles = document.querySelectorAll('.tile[data-svc]');
+  for (const el of tiles){
+    const svc = el.dataset.svc;
+    try{
+      const r = await fetch(`/grafana_status?svc=${encodeURIComponent(svc)}`, { cache: 'no-store' });
+      const data = await r.json();
+      const ok = !!data.ok;
+      el.classList.toggle('is-down', !ok);
+      el.classList.toggle('is-up', ok);
+      el.title = ok ? 'Online (Grafana)' : `OFFLINE (${data.source}${data.active_alerts?` - ${data.active_alerts} alerta(s)`:''})`;
+    }catch(e){
+      el.classList.add('is-down'); el.classList.remove('is-up');
+      el.title = 'OFFLINE (erro na consulta ao backend)';
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.tile[data-svc]').forEach(el => el.classList.add('is-up'));
+  atualizar();
+  setInterval(atualizar, 30000);
+});
+

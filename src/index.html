@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Instituição — Painel com 4 Cards</title>
+  <title>Instituição ArqCorp</title>
   <link rel="stylesheet" href="style.css">
   <meta name="color-scheme" content="light" />
 </head>
@@ -24,7 +24,7 @@
         <h2 id="c1-title">SINCAD</h2>
         <p class="desc">Sistema de Cadastro de Contribuintes do ICMS.</p>
         <details class="accordion">
-          <summary aria-controls="c1-menu" aria-expanded="false">Opções e atalhos</summary>
+          <summary aria-controls="c1-menu" aria-expanded="false">Componentes</summary>
           <nav class="menu" id="c1-menu" aria-label="Atalhos — Serviços ao Contribuinte">
           <!-- 1) SINCAD-WEB (já no seu código, com ajuste no data-check) -->
           <details class="menu-item">
@@ -38,12 +38,13 @@
                 data-check="https://www.google.com/favicon.ic"
                 href="#/monitor">MONITOR DE URLs</a>
 
-              <a class="tile" href="#/bd">BANCO DE DADOS</a>
-              <a class="tile" href="#/seguranca">SEGURANÇA</a>
-              <a class="tile" href="#/rede">REDE</a>
-              <a class="tile" href="#/isilon">ISILON</a>
-              <a class="tile" href="#/cicd">CI/CD</a>
-              <a class="tile" href="#/openshift">OPENSHIFT</a>
+                <a class="tile" data-svc="sincad-web" href="#/monitor">MONITOR DE URLs</a>
+                <a class="tile" data-svc="sincad-web" href="#/bd">BANCO DE DADOS</a>
+                <a class="tile" data-svc="sincad-web" href="#/seguranca">SEGURANÇA</a>
+                <a class="tile" data-svc="sincad-web" href="#/rede">REDE</a>
+                <a class="tile" data-svc="sincad-web" href="#/storage">STORAGE</a>
+                <a class="tile" data-svc="sincad-web" href="#/cicd">CI/CD</a>
+                <a class="tile" data-svc="sincad-web" href="#/openshift">INFRAESTRUTURA</a>
             </div>
           </details>
 
@@ -59,9 +60,9 @@
               <a class="tile" href="#/bd-rest">BANCO DE DADOS</a>
               <a class="tile" href="#/seguranca-rest">SEGURANÇA</a>
               <a class="tile" href="#/rede-rest">REDE</a>
-              <a class="tile" href="#/isilon-rest">ISILON</a>
+              <a class="tile" href="#/storage-rest">STORAGE</a>
               <a class="tile" href="#/cicd-rest">CI/CD</a>
-              <a class="tile" href="#/openshift-rest">OPENSHIFT</a>
+              <a class="tile" href="#/openshift-rest">INFRAESTRUTURA</a>
             </div>
           </details>
 
@@ -77,9 +78,9 @@
               <a class="tile" href="#/bd-portal">BANCO DE DADOS</a>
               <a class="tile" href="#/seguranca-portal">SEGURANÇA</a>
               <a class="tile" href="#/rede-portal">REDE</a>
-              <a class="tile" href="#/isilon-portal">ISILON</a>
+              <a class="tile" href="#/storage-portal">STORAGE</a>
               <a class="tile" href="#/cicd-portal">CI/CD</a>
-              <a class="tile" href="#/openshift-portal">OPENSHIFT</a>
+              <a class="tile" href="#/openshift-portal">INFRAESTRUTURA</a>
             </div>
           </details>
 
@@ -95,9 +96,9 @@
               <a class="tile" href="#/bd-service">BANCO DE DADOS</a>
               <a class="tile" href="#/seguranca-service">SEGURANÇA</a>
               <a class="tile" href="#/rede-service">REDE</a>
-              <a class="tile" href="#/isilon-service">ISILON</a>
+              <a class="tile" href="#/storage-service">STORAGE</a>
               <a class="tile" href="#/cicd-service">CI/CD</a>
-              <a class="tile" href="#/openshift-service">OPENSHIFT</a>
+              <a class="tile" href="#/openshift-service">INFRAESTRUTURA</a>
             </div>
           </details>
       </section>
